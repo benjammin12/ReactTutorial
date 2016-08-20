@@ -9,7 +9,7 @@ import ImageList from './components/image_list';
 
 const App = () => {
   return (
-    <div> Something from the main.js 
+    <div> you can write or add anything here
     <ImageList />
     </div>
   );
