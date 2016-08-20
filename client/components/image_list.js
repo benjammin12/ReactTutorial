@@ -4,16 +4,15 @@ import React from 'react';
 import ImageDetail from './image_detail';
 
 //array of objects
-const IMAGES = [
-  {title: 'pen', link: 'https://dummyimage.com/600x400'},
-  {title: 'pencil' , link: 'https://dummyimage.com/600x400'},
-  {title: 'money', link: 'https://dummyimage.com/600x400'}
-];
 
-const ImageList = () => {
-  const RenderedImages = IMAGES.map(function(image) {
-    return <ImageDetail image={image}/>
-  });
+//functional components get access to props object
+const ImageList = (props) => {
+
+const validImages = props.images.filter(image => !image.is_album && image.description != null);
+
+  const RenderedImages = validImages.map(image =>
+     <ImageDetail key={image.title} image={image}/>
+  );
 
   return (
     <ul className="media-list list-group">
