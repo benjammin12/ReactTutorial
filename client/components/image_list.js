@@ -8,7 +8,8 @@ import ImageDetail from './image_detail';
 //functional components get access to props object
 const ImageList = (props) => {
 
-const validImages = props.images.filter(image => !image.is_album && image.description != null);
+// can add && image.description != null to filter out images without discription
+const validImages = props.images.filter(image => !image.is_album);
 
   const RenderedImages = validImages.map(image =>
      <ImageDetail key={image.title} image={image}/>
